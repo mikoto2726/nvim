@@ -157,6 +157,23 @@ require('packer').startup(function(use)
         },
         winblend = 10,
         borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+        prompt_prefix = "🔍 ",   -- 🔎 プロンプトにアイコンを追加
+        selection_caret = "➤ ", -- 🔥 選択行のデザインを変更
+        entry_prefix = "🔥",     -- 🔥 エントリのデザインを変更
+        initial_mode = "insert", -- 🔥 プロンプトの初期モードを挿入モードに設定
+        -- 閉じるには
+        -- <C-c> または <Esc> で閉じる
+        mappings = {
+          i = {
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+          },
+          n = {
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+          },
+        },
 
         -- 🔥 検索結果の数を常時表示する設定
         attach_mappings = function(_, map)

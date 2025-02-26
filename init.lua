@@ -159,7 +159,7 @@ require('packer').startup(function(use)
         borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
         prompt_prefix = "🔍 ",   -- 🔎 プロンプトにアイコンを追加
         selection_caret = "➤ ", -- 🔥 選択行のデザインを変更
-        entry_prefix = "🔥",     -- 🔥 エントリのデザインを変更
+        entry_prefix = "  ",     -- 🔥 エントリのデザインを変更
         initial_mode = "insert", -- 🔥 プロンプトの初期モードを挿入モードに設定
         -- 閉じるには
         -- <C-c> または <Esc> で閉じる

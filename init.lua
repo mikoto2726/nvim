@@ -21,8 +21,6 @@ require('packer').startup(function(use)
   use 'ryanoasis/vim-devicons'  -- NERDTreeでアイコンを表示
   use 'itchyny/lightline.vim'  -- lightlineのプラグイン
   use 'honza/vim-snippets'
-  use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
-  use 'junegunn/fzf.vim'
   use 'airblade/vim-gitgutter'
   use 'frazrepo/vim-rainbow'
   use 'jiangmiao/auto-pairs'
@@ -133,6 +131,81 @@ require('packer').startup(function(use)
   use { "github/copilot.vim" }
 
   use 'wakatime/vim-wakatime' -- WakaTimeプラグイン
+    
+  -- Telescope: ファイル検索とプロジェクト管理
+  use {
+  'nvim-telescope/telescope.nvim', tag = '0.1.4',
+  requires = {
+    {'nvim-lua/plenary.nvim'},
+    {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+    {'nvim-telescope/telescope-file-browser.nvim'},
+    {'nvim-telescope/telescope-project.nvim'}
+  },
+  config = function()
+    local telescope = require('telescope')
+    local actions = require('telescope.actions')
+    local action_state = require('telescope.actions.state')
+
+    telescope.setup{
+      defaults = {
+        layout_strategy = 'vertical',
+        layout_config = {
+          width = 0.9,
+          height = 0.9,
+          preview_cutoff = 1,
+          prompt_position = "bottom",
+        },
+        winblend = 10,
+        borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+
+        -- 🔥 検索結果の数を常時表示する設定
+        attach_mappings = function(_, map)
+          local function update_results_count(prompt_bufnr)
+            local picker = action_state.get_current_picker(prompt_bufnr)
+            vim.defer_fn(function()
+              picker.results_title = "🔍 検索結果: " .. tostring(#picker.finder.results) .. " 件"
+              picker:refresh()  -- 自動でタイトルを更新
+            end, 100)
+          end
+
+          -- 検索時に動的に結果数を更新
+          map('i', '<CR>', function(prompt_bufnr)
+            update_results_count(prompt_bufnr)
+            actions.select_default(prompt_bufnr)
+          end)
+
+          -- 入力が変更されるたびに更新
+          map('i', '<C-r>', update_results_count)
+          map('n', '<C-r>', update_results_count)
+
+          return true
+        end,
+      },
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        }
+      }
+    }
+
+    -- 拡張機能のロード
+    telescope.load_extension('fzf')
+    telescope.load_extension('file_browser')
+    telescope.load_extension('project')
+
+    -- 🔑 キーマッピング
+    local builtin = require('telescope.builtin')
+    vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+    vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
+    vim.keymap.set('n', '<Leader>fg', builtin.git_files, {})
+    vim.keymap.set('n', '<Leader>fb', ':Telescope file_browser<CR>', { noremap = true })
+    vim.keymap.set('n', '<Leader>fp', ':Telescope project<CR>', { noremap = true })
+  end
+  }
+
 end)
 
 -- TokyoNightカラースキームの設定
@@ -204,9 +277,6 @@ vim.g.WebDevIconsNerdTreeAfterGlyphPadding = ' '  -- アイコンの後にスペ
 
 
 
--- Fzfのショートカット設定
-vim.api.nvim_set_keymap('n', '<C-p>', ':Files<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-f>', ':Rg<CR>', { noremap = true, silent = true })
 
 -- PythonとC言語のインデント設定
 vim.cmd([[
@@ -301,3 +371,8 @@ function! LightlineFilename()
   return expand('%:p')  " %:pは絶対パス、%:.は相対パスを表示
 endfunction
 ]], false)
+
+
+vim.env.FZF_DEFAULT_OPTS = "--height 10%"
+
+

@@ -1,3 +1,4 @@
+
 vim.o.termguicolors = true  -- カラースキームを正しく表示するために追加
 vim.o.background = 'dark' -- 背景をダークに設定
 vim.o.backspace = 'indent,eol,start' -- インデント、行末、行頭でバックスペースを有効化

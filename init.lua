@@ -281,3 +281,23 @@ vim.api.nvim_set_keymap('n', '<Leader>th', ':split | terminal<CR>', { noremap = 
 
 -- 垂直分割でターミナルを開くショートカット
 vim.api.nvim_set_keymap('n', '<Leader>tv', ':vsplit | terminal<CR>', { noremap = true, silent = true })
+
+
+vim.g.lightline = {
+  active = {
+    left = {
+      { 'mode', 'paste' },
+      { 'readonly', 'relativepath', 'modified' } -- 詳細な相対パスを表示
+    }
+  },
+  component_function = {
+    filename = 'LightlineFilename'
+  }
+}
+
+-- ファイル名をフルパスで表示する関数を定義
+vim.api.nvim_exec([[
+function! LightlineFilename()
+  return expand('%:p')  " %:pは絶対パス、%:.は相対パスを表示
+endfunction
+]], false)

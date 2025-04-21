@@ -224,6 +224,32 @@ require('packer').startup(function(use)
   end
   }
 
+  use {
+    "yetone/avante.nvim",
+    run = "make",
+    requires = {
+    "nvim-treesitter/nvim-treesitter",
+    "stevearc/dressing.nvim",
+    "nvim-lua/plenary.nvim",
+    "MunifTanjim/nui.nvim",
+    "MeanderingProgrammer/render-markdown.nvim",
+    },
+    config = function()
+    require("avante").setup({
+        provider = "openai",
+        openai = {
+        endpoint = "https://api.openai.com/v1",
+        model = "gpt-4o",
+        timeout = 30000,
+        temperature = 0,
+        max_tokens = 8192,
+        api_key = os.getenv("OPENAI_API_KEY"),
+        },
+    })
+    end
+  }  
+
+
 end)
 
 -- TokyoNightカラースキームの設定
@@ -392,5 +418,3 @@ endfunction
 
 
 vim.env.FZF_DEFAULT_OPTS = "--height 10%"
-
-

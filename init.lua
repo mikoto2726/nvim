@@ -235,17 +235,18 @@ require('packer').startup(function(use)
     "MeanderingProgrammer/render-markdown.nvim",
     },
     config = function()
+    
     require("avante").setup({
-        provider = "openai",
-        openai = {
-        endpoint = "https://api.openai.com/v1",
-        model = "gpt-4o",
+      provider = "copilot",
+      copilot = {
+        endpoint = "https://api.githubcopilot.com",
+        model = "gpt-4o-2024-08-06", -- 使用するモデルを指定
         timeout = 30000,
         temperature = 0,
-        max_tokens = 8192,
-        api_key = os.getenv("OPENAI_API_KEY"),
-        },
+        max_tokens = 20480,
+      }
     })
+
     end
   }  
 

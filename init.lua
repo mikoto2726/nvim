@@ -235,7 +235,6 @@ require('packer').startup(function(use)
     "MeanderingProgrammer/render-markdown.nvim",
     },
     config = function()
-    
     require("avante").setup({
       provider = "copilot",
       copilot = {
@@ -244,6 +243,9 @@ require('packer').startup(function(use)
         timeout = 30000,
         temperature = 0,
         max_tokens = 20480,
+      },
+      behaviour = {
+        auto_apply_diff_after_generation = true,
       }
     })
 

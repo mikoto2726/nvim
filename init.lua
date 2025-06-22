@@ -224,35 +224,50 @@ require('packer').startup(function(use)
   end
   }
 
+  -- ローカルのavante.nvimを使用するための設定 
+  
+-- ローカルの avante.nvim を使用
   use {
-    "yetone/avante.nvim",
-    run = "make",
+    "~/Documents/bug_bounty/avante.nvim",
+    as = "avante",
     requires = {
-    "nvim-treesitter/nvim-treesitter",
-    "stevearc/dressing.nvim",
-    "nvim-lua/plenary.nvim",
-    "MunifTanjim/nui.nvim",
-    "MeanderingProgrammer/render-markdown.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "MeanderingProgrammer/render-markdown.nvim",
     },
     config = function()
-    require("avante").setup({
-      provider = "copilot",
-      copilot = {
-        endpoint = "https://api.githubcopilot.com",
-        model = "gpt-4o-2024-08-06", -- 使用するモデルを指定
-        timeout = 30000,
-        temperature = 0,
-        max_tokens = 20480,
-      },
-      behaviour = {
-        auto_apply_diff_after_generation = true,
-      }
-    })
-
-    end
-  }  
-
-
+      require("avante").setup({
+        provider = "openai",
+        copilot = {
+          endpoint = "https://api.openai.com/v1",
+          api_key_name = "OPENAI_API_KEY",
+          model = "gpt-4o",
+          timeout = 30000,
+          temperature = 0,
+          max_tokens = 20480,
+        },
+        behaviour = {
+          auto_apply_diff_after_generation = true,
+        },
+        rag_service = {
+          enabled         = true,                         -- RAG を有効化
+          runner          = "docker",                     -- 既定値
+          host_mount      = os.getenv("HOME"),            -- ホスト側のマウント先
+          provider        = "openai",                     -- LLM/Embedding のプロバイダ
+          endpoint        = "https://api.openai.com/v1",  -- API エンドポイント
+          llm_model       = "gpt-4o-mini",                -- 質問統合用 LLM
+          embed_model     = "text-embedding-3-large",     -- ベクトル化モデル
+          docker_extra_args = "--cpus=2 --memory=4g",     -- 任意でリソース制限
+       },
+      })
+      -- ✅ AvanteAuditProject コマンドはそのまま
+      vim.api.nvim_create_user_command("AvanteAuditProject", function()
+        require("avante.project_audit").run_project_audit()
+      end, {})
+    end,
+  }
 end)
 
 -- TokyoNightカラースキームの設定

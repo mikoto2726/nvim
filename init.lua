@@ -1,5 +1,4 @@
-
-vim.o.termguicolors = true  -- カラースキームを正しく表示するために追加
+vim.o.termguicolors = true -- カラースキームを正しく表示するために追加
 vim.o.background = 'dark' -- 背景をダークに設定
 vim.o.backspace = 'indent,eol,start' -- インデント、行末、行頭でバックスペースを有効化
 vim.o.number = true -- 行番号を表示
@@ -57,7 +56,7 @@ require('packer').startup(function(use)
   -- eslintとprettierによるリントとフォーマット
   use 'MunifTanjim/eslint.nvim'
   use 'MunifTanjim/prettier.nvim'
-   
+    
   -- Indentラインを表示するプラグイン
   use {
     'lukas-reineke/indent-blankline.nvim',
@@ -71,7 +70,7 @@ require('packer').startup(function(use)
       vim.api.nvim_set_hl(0, "IndentLevel4", { fg = "#5a8bb8", nocombine = true })
       vim.api.nvim_set_hl(0, "IndentLevel5", { fg = "#729bc4", nocombine = true })
       vim.api.nvim_set_hl(0, "IndentLevel6", { fg = "#8aaed0", nocombine = true })
-      vim.api.nvim_set_hl(0, "IblScope",    { fg = "#89a7d0", nocombine = true }) 
+      vim.api.nvim_set_hl(0, "IblScope",     { fg = "#89a7d0", nocombine = true }) 
       
       -- プラグインの設定
       ibl.setup {
@@ -114,10 +113,10 @@ require('packer').startup(function(use)
   })
 
   use {
-        'goerz/jupytext.vim',
-        config = function()
-            vim.g.jupytext_fmt = 'py:percent'  -- Pythonファイルに変換する形式を設定
-        end
+      'goerz/jupytext.vim',
+      config = function()
+          vim.g.jupytext_fmt = 'py:percent'  -- Pythonファイルに変換する形式を設定
+      end
     }
   
   -- Markdownプレビューのプラグイン
@@ -158,9 +157,9 @@ require('packer').startup(function(use)
         },
         winblend = 10,
         borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
-        prompt_prefix = "🔍 ",   -- 🔎 プロンプトにアイコンを追加
+        prompt_prefix = "🔍 ",    -- 🔎 プロンプトにアイコンを追加
         selection_caret = "➤ ", -- 🔥 選択行のデザインを変更
-        entry_prefix = "  ",     -- 🔥 エントリのデザインを変更
+        entry_prefix = "  ",      -- 🔥 エントリのデザインを変更
         initial_mode = "insert", -- 🔥 プロンプトの初期モードを挿入モードに設定
         -- 閉じるには
         -- <C-c> または <Esc> で閉じる
@@ -224,50 +223,68 @@ require('packer').startup(function(use)
   end
   }
 
-  -- ローカルのavante.nvimを使用するための設定 
-  
--- ローカルの avante.nvim を使用
+  -- ローカルのavante.nvimを使用するための設定  
+  -- Required plugins
+  use 'nvim-lua/plenary.nvim'
+  use 'MunifTanjim/nui.nvim'
+  use 'MeanderingProgrammer/render-markdown.nvim'
+
+  -- Optional dependencies
+  use 'hrsh7th/nvim-cmp'
+  use 'nvim-tree/nvim-web-devicons' -- or use 'echasnovski/mini.icons'
+  use 'HakonHarnes/img-clip.nvim'
+  use 'zbirenbaum/copilot.lua'
+  use 'stevearc/dressing.nvim' -- for enhanced input UI
+  use 'folke/snacks.nvim' -- for modern input UI
+
+  -- Avante.nvim with build process
   use {
-    "~/Documents/bug_bounty/avante.nvim",
-    as = "avante",
-    requires = {
-      "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "MeanderingProgrammer/render-markdown.nvim",
-    },
+    '~/Documents/bug_bounty/avante.nvim2/avante.nvim',
+    branch = 'main',
+    run = 'make',
     config = function()
       require("avante").setup({
-        provider = "openai",
+      provider = "copilot",
+      behaviour = {
+        auto_apply_diff_after_generation = true,
+      },
+      providers = {
         copilot = {
-          endpoint = "https://api.openai.com/v1",
-          api_key_name = "OPENAI_API_KEY",
-          model = "gpt-4o",
+          endpoint = "https://api.githubcopilot.com",
+          model = "gpt-4o-mini", -- 使用するモデルを指定
           timeout = 30000,
-          temperature = 0,
-          max_tokens = 20480,
+          extra_request_body = {
+            temperature = 0,
+            max_tokens = 20480,
+          },
         },
-        behaviour = {
-          auto_apply_diff_after_generation = true,
+      },
+      rag_service = {
+        enabled    = true,                     
+        host_mount = "/home/kali/Documents/bug_bounty/raydium-cp-swap",        
+        runner     = "docker",                
+        llm = {                                
+          provider  = "openai",
+          endpoint  = "https://api.openai.com/v1",
+          api_key   = "OPENAI_API_KEY",        
+          model     = "gpt-4o-mini",
+          extra     = nil,
         },
-        rag_service = {
-          enabled         = true,                         -- RAG を有効化
-          runner          = "docker",                     -- 既定値
-          host_mount      = os.getenv("HOME"),            -- ホスト側のマウント先
-          provider        = "openai",                     -- LLM/Embedding のプロバイダ
-          endpoint        = "https://api.openai.com/v1",  -- API エンドポイント
-          llm_model       = "gpt-4o-mini",                -- 質問統合用 LLM
-          embed_model     = "text-embedding-3-large",     -- ベクトル化モデル
-          docker_extra_args = "--cpus=2 --memory=4g",     -- 任意でリソース制限
-       },
-      })
-      -- ✅ AvanteAuditProject コマンドはそのまま
-      vim.api.nvim_create_user_command("AvanteAuditProject", function()
-        require("avante.project_audit").run_project_audit()
-      end, {})
-    end,
+        embed = {                              
+          provider  = "openai",
+          endpoint  = "https://api.openai.com/v1",
+          api_key   = "OPENAI_API_KEY",
+          model     = "text-embedding-3-large",
+          extra     = nil,
+        },
+        docker_extra_args = "",                
+      },
+
+
+    })
+    end
   }
+  
 end)
 
 -- TokyoNightカラースキームの設定

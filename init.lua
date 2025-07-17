@@ -251,7 +251,7 @@ require('packer').startup(function(use)
       providers = {
         copilot = {
           endpoint = "https://api.githubcopilot.com",
-          model = "gpt-4o-mini-128k", -- 使用するモデルを指定
+          model = "gpt-4o", -- 使用するモデルを指定
           timeout = 30000,
           extra_request_body = {
             temperature = 0,

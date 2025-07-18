@@ -267,7 +267,7 @@ require('packer').startup(function(use)
           provider  = "openai",
           endpoint  = "https://api.openai.com/v1",
           api_key   = "OPENAI_API_KEY",        
-          model     = "gpt-4o-mini-128k",
+          model     = "gpt-4o",
           extra     = nil,
         },
         embed = {                              

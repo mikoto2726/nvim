@@ -250,7 +250,7 @@ require('packer').startup(function(use)
       },
       providers = {
         copilot = {
-          endpoint = "https://api.githubcopilot.com",
+          endpoint = "https://api.githubcopilot.com/docs.raydium.io",
           model = "gpt-4o", -- 使用するモデルを指定
           timeout = 30000,
           extra_request_body = {

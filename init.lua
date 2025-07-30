@@ -244,13 +244,22 @@ require('packer').startup(function(use)
     run = 'make',
     config = function()
       require("avante").setup({
-      provider = "copilot",
+      provider = "openai",
       behaviour = {
         auto_apply_diff_after_generation = true,
       },
       providers = {
+        openai = {
+          endpoint = "https://api.openai.com/v1",
+          model    = "gpt-4o-mini",          -- 好きなモデル名
+          timeout  = 30000,
+          extra_request_body = {
+            temperature = 0,
+            max_tokens  = 4096,
+          },
+        },
         copilot = {
-          endpoint = "https://api.githubcopilot.com/docs.raydium.io",
+          endpoint = "https://api.githubcopilot.com",
           model = "gpt-4o", -- 使用するモデルを指定
           timeout = 30000,
           extra_request_body = {
@@ -263,6 +272,7 @@ require('packer').startup(function(use)
         enabled    = true,                     
         host_mount = "/home/kali/Documents/bug_bounty/raydium-cp-swap",        
         runner     = "docker",                
+        image   = "quay.io/yetoneful/avante-rag-service:0.0.11",
         llm = {                                
           provider  = "openai",
           endpoint  = "https://api.openai.com/v1",
@@ -277,7 +287,7 @@ require('packer').startup(function(use)
           model     = "text-embedding-3-large",
           extra     = nil,
         },
-        docker_extra_args = "",                
+        docker_extra_args = "-e LOG_LEVEL=debug",                
       },
 
 

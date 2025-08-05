@@ -287,7 +287,10 @@ require('packer').startup(function(use)
           model     = "text-embedding-3-large",
           extra     = nil,
         },
-        docker_extra_args = "-e LOG_LEVEL=debug",                
+        docker_extra_args = table.concat({
+            "-v avante_rag:/rag_data",
+            "-e LOG_LEVEL=debug",
+        }, " "),
       },
 
 

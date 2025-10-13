@@ -237,58 +237,63 @@ require('packer').startup(function(use)
   use 'stevearc/dressing.nvim' -- for enhanced input UI
   use 'folke/snacks.nvim' -- for modern input UI
 
-  -- avante.nvim with build process
+  -- Avante.nvim with build process
   use {
     '~/Documents/bug_bounty/avante.nvim2/avante.nvim',
     branch = 'main',
     run = 'make',
     config = function()
       require("avante").setup({
-      provider = "ollama",
+      provider = "openai",
       behaviour = {
         auto_apply_diff_after_generation = true,
-        on_log = function(_) end,
       },
       providers = {
-         ollama = {
-            endpoint = "http://127.0.0.1:11434",
-            model    = "qwen2.5-coder:3b", 
-            keep_alive = "1m",      
-            disable_tools = true,
-            extra_request_body = {
-              stream = false,
-              options = {
-                num_ctx = 6000,
-                num_predict = 256,
-                temperature = 0.2,
-              },
-            },
-            request_timeout_ms = 120000,
+        openai = {
+          endpoint = "https://api.openai.com/v1",
+          model    = "gpt-4o-mini",          -- 好きなモデル名
+          timeout  = 30000,
+          extra_request_body = {
+            temperature = 0,
+            max_tokens  = 4096,
           },
+        },
+        copilot = {
+          endpoint = "https://api.githubcopilot.com",
+          model = "gpt-4o", -- 使用するモデルを指定
+          timeout = 30000,
+          extra_request_body = {
+            temperature = 0,
+            max_tokens = 20480,
+          },
+        },
       },
       rag_service = {
-        enabled = true,
-        host_mount = "/home/kali/Documents/bug_bounty/raydium-cp-swap/docs.raydium.io", 
-        runner = "docker",
-        image  = "quay.io/yetoneful/avante-rag-service:0.0.11",
-        -- 生成系は Ollama（例）
-        llm = {
-          provider = "ollama",
-          endpoint = "http://127.0.0.1:11434",
-          model = "qwen2.5-coder:7b", -- 3bでもOK
+        enabled    = true,                     
+        host_mount = "/home/kali/Documents/bug_bounty/raydium-cp-swap",        
+        runner     = "docker",                
+        image   = "quay.io/yetoneful/avante-rag-service:0.0.11",
+        llm = {                                
+          provider  = "openai",
+          endpoint  = "https://api.openai.com/v1",
+          api_key   = "OPENAI_API_KEY",        
+          model     = "gpt-4o-mini",
+          extra     = nil,
         },
-        -- 埋め込みは TEI
-        embed = {
-          provider = "tei",
-          endpoint = "http://127.0.0.1:8080", -- さっきの TEI
-          model = "BAAI/bge-m3",
-          extra = nil,
+        embed = {                              
+          provider  = "openai",
+          endpoint  = "https://api.openai.com/v1",
+          api_key   = "OPENAI_API_KEY",
+          model     = "text-embedding-3-large",
+          extra     = nil,
         },
         docker_extra_args = table.concat({
-          "-v avante_rag:/rag_data",
-          "-e LOG_LEVEL=debug",
+            "-v avante_rag:/rag_data",
+            "-e LOG_LEVEL=debug",
         }, " "),
       },
+
+
     })
     end
   }

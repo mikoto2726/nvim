@@ -269,7 +269,6 @@ require('packer').startup(function(use)
           runner     = "docker",
           host_mount = "/home/kali/Documents/bug_bounty/raydium-cp-swap",
           docker_extra_args = table.concat({
-            "-v avante-rag-data:/data",
             "-e UVICORN_CMD_ARGS=--workers\\ 1\\ --limit-concurrency\\ 4",
           }, " "),
           image = "quay.io/yetoneful/avante-rag-service:0.0.11",

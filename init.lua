@@ -253,7 +253,7 @@ require('packer').startup(function(use)
         providers = {
           openai = {
             endpoint = "https://api.openai.com/v1",
-            model    = "gpt-4o-mini",
+            model    = "gpt-4o",
             timeout  = 30000,
             extra_request_body = { temperature = 0, max_tokens = 4096 },
           },
@@ -267,16 +267,15 @@ require('packer').startup(function(use)
         rag_service = {
           enabled    = true,
           runner     = "docker",
-          host_mount = "/home/kali/Documents/bug_bounty/raydium-cp-swap",
+          host_mount = "/home/kali/Documents/bug_bounty/S",
           docker_extra_args = table.concat({
             "-e UVICORN_CMD_ARGS=--workers\\ 1\\ --limit-concurrency\\ 4",
           }, " "),
-          image = "quay.io/yetoneful/avante-rag-service:0.0.11",
           llm = {
             provider = "openai",
             endpoint = "https://api.openai.com/v1",
             api_key  = "OPENAI_API_KEY",
-            model    = "gpt-4o-mini",
+            model    = "gpt-4o",
           },
           embed = {
             provider = "openai",

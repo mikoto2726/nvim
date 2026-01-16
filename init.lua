@@ -262,7 +262,7 @@ require('packer').startup(function(use)
         providers = {
           copilot = {
             endpoint = 'https://api.githubcopilot.com',
-            model = 'gpt-4o-2024-11-20',
+            model = 'gpt-5.2',
             timeout = 30000,
             extra_request_body = {
               temperature = 0,

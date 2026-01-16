@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/kali/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?.lua;/home/kali/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?/init.lua;/home/kali/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?.lua;/home/kali/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/kali/.cache/nvim/packer_hererocks/2.1.1713484068/lib/lua/5.1/?.so"
+local package_path_str = "/home/kali/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?.lua;/home/kali/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?/init.lua;/home/kali/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?.lua;/home/kali/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/kali/.cache/nvim/packer_hererocks/2.1.1741730670/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -80,10 +80,10 @@ _G.packer_plugins = {
     url = "https://github.com/jiangmiao/auto-pairs"
   },
   ["avante.nvim"] = {
-    config = { "\27LJ\2\nƒ\a\0\0\b\0\26\0\0316\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\t\0005\4\6\0005\5\a\0=\5\b\4=\4\n\0035\4\v\0005\5\f\0=\5\b\4=\4\r\3=\3\14\0025\3\15\0006\4\16\0009\4\17\0045\6\18\0'\a\19\0B\4\3\2=\4\20\0035\4\21\0=\4\22\0035\4\23\0=\4\24\3=\3\25\2B\0\2\1K\0\1\0\16rag_service\nembed\1\0\4\fapi_key\19OPENAI_API_KEY\rendpoint\30https://api.openai.com/v1\rprovider\vopenai\nmodel\27text-embedding-3-large\bllm\1\0\4\fapi_key\19OPENAI_API_KEY\rendpoint\30https://api.openai.com/v1\rprovider\vopenai\nmodel\vgpt-4o\22docker_extra_args\6 \1\2\0\0=-e UVICORN_CMD_ARGS=--workers\\ 1\\ --limit-concurrency\\ 4\vconcat\ntable\1\0\6\22docker_extra_args\0\bllm\0\fenabled\2\15host_mount&/home/kali/Documents/bug_bounty/S\nembed\0\vrunner\vdocker\14providers\fcopilot\1\0\2\16temperature\3\0\15max_tokens\3Ä†\1\1\0\4\ftimeout\3∞Í\1\rendpoint\"https://api.githubcopilot.com\23extra_request_body\0\nmodel\vgpt-4o\vopenai\1\0\2\fcopilot\0\vopenai\0\23extra_request_body\1\0\2\16temperature\3\0\15max_tokens\3Ä \1\0\4\ftimeout\3∞Í\1\rendpoint\30https://api.openai.com/v1\23extra_request_body\0\nmodel\vgpt-4o\14behaviour\1\0\1%auto_apply_diff_after_generation\2\1\0\4\14behaviour\0\14providers\0\rprovider\vopenai\16rag_service\0\nsetup\vavante\frequire\0" },
+    config = { "\27LJ\2\n¯\3\0\0\6\0\19\0\0276\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\0016\0\0\0'\2\b\0B\0\2\0029\0\2\0005\2\t\0005\3\n\0=\3\v\0025\3\15\0005\4\f\0005\5\r\0=\5\14\4=\4\1\3=\3\16\0025\3\17\0=\3\18\2B\0\2\1K\0\1\0\16rag_service\1\0\1\fenabled\1\14providers\1\0\1\fcopilot\0\23extra_request_body\1\0\2\15max_tokens\3Ä†\1\16temperature\3\0\1\0\4\rendpoint\"https://api.githubcopilot.com\23extra_request_body\0\nmodel\22gpt-4o-2024-11-20\ftimeout\3∞Í\1\14behaviour\1\0\1%auto_apply_diff_after_generation\2\1\0\4\rprovider\fcopilot\14providers\0\16rag_service\0\14behaviour\0\vavante\npanel\1\0\1\fenabled\1\15suggestion\1\0\2\npanel\0\15suggestion\0\1\0\1\fenabled\1\nsetup\fcopilot\frequire\0" },
     loaded = true,
     path = "/home/kali/.local/share/nvim/site/pack/packer/start/avante.nvim",
-    url = "/home/kali/Documents/bug_bounty/avante.nvim2/avante.nvim"
+    url = "https://github.com/yetone/avante.nvim"
   },
   ["coc.nvim"] = {
     loaded = true,
@@ -91,14 +91,10 @@ _G.packer_plugins = {
     url = "https://github.com/neoclide/coc.nvim"
   },
   ["copilot.lua"] = {
+    config = { "\27LJ\2\nà\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\npanel\1\0\1\fenabled\1\15suggestion\1\0\2\npanel\0\15suggestion\0\1\0\1\fenabled\1\nsetup\fcopilot\frequire\0" },
     loaded = true,
     path = "/home/kali/.local/share/nvim/site/pack/packer/start/copilot.lua",
     url = "https://github.com/zbirenbaum/copilot.lua"
-  },
-  ["copilot.vim"] = {
-    loaded = true,
-    path = "/home/kali/.local/share/nvim/site/pack/packer/start/copilot.vim",
-    url = "https://github.com/github/copilot.vim"
   },
   ["dressing.nvim"] = {
     loaded = true,
@@ -106,17 +102,13 @@ _G.packer_plugins = {
     url = "https://github.com/stevearc/dressing.nvim"
   },
   ["eslint.nvim"] = {
+    config = { "\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\veslint\frequire\30\1\0\3\0\2\0\0046\0\0\0003\2\1\0B\0\2\1K\0\1\0\0\npcall\0" },
     loaded = true,
     path = "/home/kali/.local/share/nvim/site/pack/packer/start/eslint.nvim",
     url = "https://github.com/MunifTanjim/eslint.nvim"
   },
-  ["img-clip.nvim"] = {
-    loaded = true,
-    path = "/home/kali/.local/share/nvim/site/pack/packer/start/img-clip.nvim",
-    url = "https://github.com/HakonHarnes/img-clip.nvim"
-  },
   ["indent-blankline.nvim"] = {
-    config = { "\27LJ\2\nÚ\5\0\0\6\0\27\0>6\0\0\0'\2\1\0B\0\2\0026\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\5\0005\5\6\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\a\0005\5\b\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\t\0005\5\n\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\v\0005\5\f\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\r\0005\5\14\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\15\0005\5\16\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\17\0005\5\18\0B\1\4\0019\1\19\0005\3\23\0005\4\20\0005\5\21\0=\5\22\4=\4\24\0035\4\25\0=\4\26\3B\1\2\1K\0\1\0\nscope\1\0\4\14highlight\rIblScope\rshow_end\2\15show_start\2\fenabled\2\vindent\1\0\2\vindent\0\nscope\0\14highlight\1\a\0\0\17IndentLevel1\17IndentLevel2\17IndentLevel3\17IndentLevel4\17IndentLevel5\17IndentLevel6\1\0\2\14highlight\0\tchar\b‚îÇ\nsetup\1\0\2\14nocombine\2\afg\f#89a7d0\rIblScope\1\0\2\14nocombine\2\afg\f#8aaed0\17IndentLevel6\1\0\2\14nocombine\2\afg\f#729bc4\17IndentLevel5\1\0\2\14nocombine\2\afg\f#5a8bb8\17IndentLevel4\1\0\2\14nocombine\2\afg\f#447aad\17IndentLevel3\1\0\2\14nocombine\2\afg\f#316aa1\17IndentLevel2\1\0\2\14nocombine\2\afg\f#205d96\17IndentLevel1\16nvim_set_hl\bapi\bvim\bibl\frequire\0" },
+    config = { "\27LJ\2\nÚ\5\0\0\6\0\27\0>6\0\0\0'\2\1\0B\0\2\0026\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\5\0005\5\6\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\a\0005\5\b\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\t\0005\5\n\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\v\0005\5\f\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\r\0005\5\14\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\15\0005\5\16\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\17\0005\5\18\0B\1\4\0019\1\19\0005\3\23\0005\4\20\0005\5\21\0=\5\22\4=\4\24\0035\4\25\0=\4\26\3B\1\2\1K\0\1\0\nscope\1\0\4\14highlight\rIblScope\rshow_end\2\15show_start\2\fenabled\2\vindent\1\0\2\vindent\0\nscope\0\14highlight\1\a\0\0\17IndentLevel1\17IndentLevel2\17IndentLevel3\17IndentLevel4\17IndentLevel5\17IndentLevel6\1\0\2\14highlight\0\tchar\b‚îÇ\nsetup\1\0\2\afg\f#89a7d0\14nocombine\2\rIblScope\1\0\2\afg\f#8aaed0\14nocombine\2\17IndentLevel6\1\0\2\afg\f#729bc4\14nocombine\2\17IndentLevel5\1\0\2\afg\f#5a8bb8\14nocombine\2\17IndentLevel4\1\0\2\afg\f#447aad\14nocombine\2\17IndentLevel3\1\0\2\afg\f#316aa1\14nocombine\2\17IndentLevel2\1\0\2\afg\f#205d96\14nocombine\2\17IndentLevel1\16nvim_set_hl\bapi\bvim\bibl\frequire\0" },
     loaded = true,
     path = "/home/kali/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
@@ -154,12 +146,8 @@ _G.packer_plugins = {
     path = "/home/kali/.local/share/nvim/site/pack/packer/start/nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
   },
-  ["nvim-cmp"] = {
-    loaded = true,
-    path = "/home/kali/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp"
-  },
   ["nvim-colorizer.lua"] = {
+    config = { "\27LJ\2\nï\1\0\0\4\0\5\0\b6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0B\0\3\1K\0\1\0\1\0\b\vrgb_fn\2\bcss\2\vcss_fn\2\vhsl_fn\2\bRGB\2\rRRGGBBAA\2\nnames\1\vRRGGBB\2\1\4\0\0\thtml\bcss\15javascript\nsetup\14colorizer\frequire\0" },
     loaded = true,
     path = "/home/kali/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
@@ -170,7 +158,7 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\nü\2\0\0\4\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\tfold\1\0\1\venable\2\vindent\1\0\1\venable\2\14highlight\1\0\2\venable\2&additional_vim_regex_highlighting\2\19ignore_install\1\2\0\0\ffortran\1\0\5\19ignore_install\0\tfold\0\21ensure_installed\ball\vindent\0\14highlight\0\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\nÅ\2\0\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\vindent\1\0\1\venable\2\14highlight\1\0\2\venable\2&additional_vim_regex_highlighting\2\19ignore_install\1\2\0\0\ffortran\1\0\4\19ignore_install\0\14highlight\0\21ensure_installed\ball\vindent\0\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/kali/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -178,7 +166,7 @@ _G.packer_plugins = {
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/kali/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -191,6 +179,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["prettier.nvim"] = {
+    config = { "\27LJ\2\nò\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\14filetypes\1\a\0\0\15javascript\15typescript\thtml\bcss\tjson\rmarkdown\1\0\2\bbin\rprettier\14filetypes\0\nsetup\rprettier\frequire\0" },
     loaded = true,
     path = "/home/kali/.local/share/nvim/site/pack/packer/start/prettier.nvim",
     url = "https://github.com/MunifTanjim/prettier.nvim"
@@ -199,11 +188,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kali/.local/share/nvim/site/pack/packer/start/render-markdown.nvim",
     url = "https://github.com/MeanderingProgrammer/render-markdown.nvim"
-  },
-  ["snacks.nvim"] = {
-    loaded = true,
-    path = "/home/kali/.local/share/nvim/site/pack/packer/start/snacks.nvim",
-    url = "https://github.com/folke/snacks.nvim"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
@@ -221,7 +205,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope-project.nvim"
   },
   ["telescope.nvim"] = {
-    config = { "\27LJ\2\nê\1\0\0\5\1\a\0\16-\0\0\0'\1\1\0006\2\2\0-\4\0\0009\4\3\0049\4\4\4\21\4\4\0B\2\2\2'\3\5\0&\1\3\1=\1\0\0-\0\0\0\18\2\0\0009\0\6\0B\0\2\1K\0\1\0\1¿\frefresh\t ‰ª∂\fresults\vfinder\rtostring\24üîç Ê§úÁ¥¢ÁµêÊûú: \18results_titleV\1\1\6\1\4\0\v-\1\0\0009\1\0\1\18\3\0\0B\1\2\0026\2\1\0009\2\2\0023\4\3\0)\5d\0B\2\3\0012\0\0ÄK\0\1\0\0\0\0\rdefer_fn\bvim\23get_current_picker:\0\1\4\2\1\0\b-\1\0\0\18\3\0\0B\1\2\1-\1\1\0009\1\0\1\18\3\0\0B\1\2\1K\0\1\0\2¿\1\0\19select_defaulth\1\2\b\2\6\0\0193\2\0\0\18\3\1\0'\5\1\0'\6\2\0003\a\3\0B\3\4\1\18\3\1\0'\5\1\0'\6\4\0\18\a\2\0B\3\4\1\18\3\1\0'\5\5\0'\6\4\0\18\a\2\0B\3\4\1+\3\2\0002\0\0ÄL\3\2\0\2¿\1¿\6n\n<C-r>\0\t<CR>\6i\0å\n\1\0\v\0002\0`6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0026\2\0\0'\4\3\0B\2\2\0029\3\4\0005\5\25\0005\6\5\0005\a\6\0=\a\a\0065\a\b\0=\a\t\0065\a\18\0005\b\v\0009\t\n\1=\t\f\b9\t\r\1=\t\14\b9\t\15\0019\n\16\1 \t\n\t=\t\17\b=\b\19\a5\b\20\0009\t\n\1=\t\f\b9\t\r\1=\t\14\b=\b\21\a=\a\22\0063\a\23\0=\a\24\6=\6\26\0055\6\28\0005\a\27\0=\a\29\6=\6\30\5B\3\2\0019\3\31\0'\5\29\0B\3\2\0019\3\31\0'\5 \0B\3\2\0019\3\31\0'\5!\0B\3\2\0016\3\0\0'\5\"\0B\3\2\0026\4#\0009\4$\0049\4%\4'\6\21\0'\a&\0009\b'\0034\t\0\0B\4\5\0016\4#\0009\4$\0049\4%\4'\6\21\0'\a(\0009\b)\0034\t\0\0B\4\5\0016\4#\0009\4$\0049\4%\4'\6\21\0'\a*\0009\b+\0034\t\0\0B\4\5\0016\4#\0009\4$\0049\4%\4'\6\21\0'\a,\0'\b-\0005\t.\0B\4\5\0016\4#\0009\4$\0049\4%\4'\6\21\0'\a/\0'\b0\0005\t1\0B\4\5\0012\0\0ÄK\0\1\0\1\0\1\fnoremap\2\27:Telescope project<CR>\15<Leader>fp\1\0\1\fnoremap\2 :Telescope file_browser<CR>\15<Leader>fb\14git_files\15<Leader>fg\14live_grep\n<C-f>\15find_files\n<C-p>\bset\vkeymap\bvim\22telescope.builtin\fproject\17file_browser\19load_extension\15extensions\bfzf\1\0\1\bfzf\0\1\0\4\nfuzzy\2\14case_mode\15smart_case\25override_file_sorter\2\28override_generic_sorter\2\rdefaults\1\0\2\rdefaults\0\15extensions\0\20attach_mappings\0\rmappings\6n\1\0\2\n<C-k>\0\n<C-j>\0\6i\1\0\2\6i\0\6n\0\n<C-q>\16open_qflist\19send_to_qflist\n<C-k>\28move_selection_previous\n<C-j>\1\0\3\n<C-q>\0\n<C-k>\0\n<C-j>\0\24move_selection_next\16borderchars\1\t\0\0\b‚îÄ\b‚îÇ\b‚îÄ\b‚îÇ\b‚ï≠\b‚ïÆ\b‚ïØ\b‚ï∞\18layout_config\1\0\4\19preview_cutoff\3\1\20prompt_position\vbottom\vheight\4Õô≥Ê\fÃô≥ˇ\3\nwidth\4Õô≥Ê\fÃô≥ˇ\3\1\0\n\16borderchars\0\rwinblend\3\n\17initial_mode\vinsert\rmappings\0\18layout_config\0\17entry_prefix\a  \20layout_strategy\rvertical\20selection_caret\t‚û§ \18prompt_prefix\nüîç \20attach_mappings\0\nsetup\28telescope.actions.state\22telescope.actions\14telescope\frequire\0" },
+    config = { "\27LJ\2\n˙\t\0\0\n\0002\0^6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0005\4\25\0005\5\4\0005\6\5\0=\6\6\0055\6\a\0=\6\b\0055\6\20\0005\a\n\0009\b\t\1=\b\v\a9\b\f\1=\b\r\a9\b\14\0019\t\15\1 \b\t\b=\b\16\a9\b\17\1=\b\18\a9\b\17\1=\b\19\a=\a\21\0065\a\22\0009\b\t\1=\b\v\a9\b\f\1=\b\r\a=\a\23\6=\6\24\5=\5\26\0045\5\28\0005\6\27\0=\6\29\5=\5\30\4B\2\2\0019\2\31\0'\4\29\0B\2\2\0019\2\31\0'\4 \0B\2\2\0019\2\31\0'\4!\0B\2\2\0016\2\0\0'\4\"\0B\2\2\0026\3#\0009\3$\0039\3%\3'\5\23\0'\6&\0009\a'\0024\b\0\0B\3\5\0016\3#\0009\3$\0039\3%\3'\5\23\0'\6(\0009\a)\0024\b\0\0B\3\5\0016\3#\0009\3$\0039\3%\3'\5\23\0'\6*\0009\a+\0024\b\0\0B\3\5\0016\3#\0009\3$\0039\3%\3'\5\23\0'\6,\0'\a-\0005\b.\0B\3\5\0016\3#\0009\3$\0039\3%\3'\5\23\0'\6/\0'\a0\0005\b1\0B\3\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\2\27:Telescope project<CR>\15<Leader>fp\1\0\2\fnoremap\2\vsilent\2 :Telescope file_browser<CR>\15<Leader>fb\14git_files\15<Leader>fg\14live_grep\n<C-f>\15find_files\n<C-p>\bset\vkeymap\bvim\22telescope.builtin\fproject\17file_browser\19load_extension\15extensions\bfzf\1\0\1\bfzf\0\1\0\4\28override_generic_sorter\2\nfuzzy\2\14case_mode\15smart_case\25override_file_sorter\2\rdefaults\1\0\2\rdefaults\0\15extensions\0\rmappings\6n\1\0\2\n<C-k>\0\n<C-j>\0\6i\1\0\2\6i\0\6n\0\n<Esc>\n<C-c>\nclose\n<C-q>\16open_qflist\19send_to_qflist\n<C-k>\28move_selection_previous\n<C-j>\1\0\5\n<Esc>\0\n<C-k>\0\n<C-j>\0\n<C-c>\0\n<C-q>\0\24move_selection_next\16borderchars\1\t\0\0\b‚îÄ\b‚îÇ\b‚îÄ\b‚îÇ\b‚ï≠\b‚ïÆ\b‚ïØ\b‚ï∞\18layout_config\1\0\4\19preview_cutoff\3\1\vheight\4Õô≥Ê\fÃô≥ˇ\3\nwidth\4Õô≥Ê\fÃô≥ˇ\3\20prompt_position\vbottom\1\0\t\16borderchars\0\rwinblend\3\n\rmappings\0\17initial_mode\vinsert\17entry_prefix\a  \18layout_config\0\20selection_caret\t‚û§ \20layout_strategy\rvertical\18prompt_prefix\nüîç \nsetup\22telescope.actions\14telescope\frequire\0" },
     loaded = true,
     path = "/home/kali/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
@@ -259,26 +243,42 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\nÅ\2\0\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\vindent\1\0\1\venable\2\14highlight\1\0\2\venable\2&additional_vim_regex_highlighting\2\19ignore_install\1\2\0\0\ffortran\1\0\4\19ignore_install\0\14highlight\0\21ensure_installed\ball\vindent\0\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: copilot.lua
+time([[Config for copilot.lua]], true)
+try_loadstring("\27LJ\2\nà\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\npanel\1\0\1\fenabled\1\15suggestion\1\0\2\npanel\0\15suggestion\0\1\0\1\fenabled\1\nsetup\fcopilot\frequire\0", "config", "copilot.lua")
+time([[Config for copilot.lua]], false)
 -- Config for: jupytext.vim
 time([[Config for jupytext.vim]], true)
 try_loadstring("\27LJ\2\n9\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\15py:percent\17jupytext_fmt\6g\bvim\0", "config", "jupytext.vim")
 time([[Config for jupytext.vim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+try_loadstring("\27LJ\2\nï\1\0\0\4\0\5\0\b6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0B\0\3\1K\0\1\0\1\0\b\vrgb_fn\2\bcss\2\vcss_fn\2\vhsl_fn\2\bRGB\2\rRRGGBBAA\2\nnames\1\vRRGGBB\2\1\4\0\0\thtml\bcss\15javascript\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: prettier.nvim
+time([[Config for prettier.nvim]], true)
+try_loadstring("\27LJ\2\nò\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\14filetypes\1\a\0\0\15javascript\15typescript\thtml\bcss\tjson\rmarkdown\1\0\2\bbin\rprettier\14filetypes\0\nsetup\rprettier\frequire\0", "config", "prettier.nvim")
+time([[Config for prettier.nvim]], false)
 -- Config for: avante.nvim
 time([[Config for avante.nvim]], true)
-try_loadstring("\27LJ\2\nƒ\a\0\0\b\0\26\0\0316\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\t\0005\4\6\0005\5\a\0=\5\b\4=\4\n\0035\4\v\0005\5\f\0=\5\b\4=\4\r\3=\3\14\0025\3\15\0006\4\16\0009\4\17\0045\6\18\0'\a\19\0B\4\3\2=\4\20\0035\4\21\0=\4\22\0035\4\23\0=\4\24\3=\3\25\2B\0\2\1K\0\1\0\16rag_service\nembed\1\0\4\fapi_key\19OPENAI_API_KEY\rendpoint\30https://api.openai.com/v1\rprovider\vopenai\nmodel\27text-embedding-3-large\bllm\1\0\4\fapi_key\19OPENAI_API_KEY\rendpoint\30https://api.openai.com/v1\rprovider\vopenai\nmodel\vgpt-4o\22docker_extra_args\6 \1\2\0\0=-e UVICORN_CMD_ARGS=--workers\\ 1\\ --limit-concurrency\\ 4\vconcat\ntable\1\0\6\22docker_extra_args\0\bllm\0\fenabled\2\15host_mount&/home/kali/Documents/bug_bounty/S\nembed\0\vrunner\vdocker\14providers\fcopilot\1\0\2\16temperature\3\0\15max_tokens\3Ä†\1\1\0\4\ftimeout\3∞Í\1\rendpoint\"https://api.githubcopilot.com\23extra_request_body\0\nmodel\vgpt-4o\vopenai\1\0\2\fcopilot\0\vopenai\0\23extra_request_body\1\0\2\16temperature\3\0\15max_tokens\3Ä \1\0\4\ftimeout\3∞Í\1\rendpoint\30https://api.openai.com/v1\23extra_request_body\0\nmodel\vgpt-4o\14behaviour\1\0\1%auto_apply_diff_after_generation\2\1\0\4\14behaviour\0\14providers\0\rprovider\vopenai\16rag_service\0\nsetup\vavante\frequire\0", "config", "avante.nvim")
+try_loadstring("\27LJ\2\n¯\3\0\0\6\0\19\0\0276\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\0016\0\0\0'\2\b\0B\0\2\0029\0\2\0005\2\t\0005\3\n\0=\3\v\0025\3\15\0005\4\f\0005\5\r\0=\5\14\4=\4\1\3=\3\16\0025\3\17\0=\3\18\2B\0\2\1K\0\1\0\16rag_service\1\0\1\fenabled\1\14providers\1\0\1\fcopilot\0\23extra_request_body\1\0\2\15max_tokens\3Ä†\1\16temperature\3\0\1\0\4\rendpoint\"https://api.githubcopilot.com\23extra_request_body\0\nmodel\22gpt-4o-2024-11-20\ftimeout\3∞Í\1\14behaviour\1\0\1%auto_apply_diff_after_generation\2\1\0\4\rprovider\fcopilot\14providers\0\16rag_service\0\14behaviour\0\vavante\npanel\1\0\1\fenabled\1\15suggestion\1\0\2\npanel\0\15suggestion\0\1\0\1\fenabled\1\nsetup\fcopilot\frequire\0", "config", "avante.nvim")
 time([[Config for avante.nvim]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-try_loadstring("\27LJ\2\nÚ\5\0\0\6\0\27\0>6\0\0\0'\2\1\0B\0\2\0026\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\5\0005\5\6\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\a\0005\5\b\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\t\0005\5\n\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\v\0005\5\f\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\r\0005\5\14\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\15\0005\5\16\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\17\0005\5\18\0B\1\4\0019\1\19\0005\3\23\0005\4\20\0005\5\21\0=\5\22\4=\4\24\0035\4\25\0=\4\26\3B\1\2\1K\0\1\0\nscope\1\0\4\14highlight\rIblScope\rshow_end\2\15show_start\2\fenabled\2\vindent\1\0\2\vindent\0\nscope\0\14highlight\1\a\0\0\17IndentLevel1\17IndentLevel2\17IndentLevel3\17IndentLevel4\17IndentLevel5\17IndentLevel6\1\0\2\14highlight\0\tchar\b‚îÇ\nsetup\1\0\2\14nocombine\2\afg\f#89a7d0\rIblScope\1\0\2\14nocombine\2\afg\f#8aaed0\17IndentLevel6\1\0\2\14nocombine\2\afg\f#729bc4\17IndentLevel5\1\0\2\14nocombine\2\afg\f#5a8bb8\17IndentLevel4\1\0\2\14nocombine\2\afg\f#447aad\17IndentLevel3\1\0\2\14nocombine\2\afg\f#316aa1\17IndentLevel2\1\0\2\14nocombine\2\afg\f#205d96\17IndentLevel1\16nvim_set_hl\bapi\bvim\bibl\frequire\0", "config", "indent-blankline.nvim")
-time([[Config for indent-blankline.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\nü\2\0\0\4\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\tfold\1\0\1\venable\2\vindent\1\0\1\venable\2\14highlight\1\0\2\venable\2&additional_vim_regex_highlighting\2\19ignore_install\1\2\0\0\ffortran\1\0\5\19ignore_install\0\tfold\0\21ensure_installed\ball\vindent\0\14highlight\0\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
+-- Config for: eslint.nvim
+time([[Config for eslint.nvim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\veslint\frequire\30\1\0\3\0\2\0\0046\0\0\0003\2\1\0B\0\2\1K\0\1\0\0\npcall\0", "config", "eslint.nvim")
+time([[Config for eslint.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\nê\1\0\0\5\1\a\0\16-\0\0\0'\1\1\0006\2\2\0-\4\0\0009\4\3\0049\4\4\4\21\4\4\0B\2\2\2'\3\5\0&\1\3\1=\1\0\0-\0\0\0\18\2\0\0009\0\6\0B\0\2\1K\0\1\0\1¿\frefresh\t ‰ª∂\fresults\vfinder\rtostring\24üîç Ê§úÁ¥¢ÁµêÊûú: \18results_titleV\1\1\6\1\4\0\v-\1\0\0009\1\0\1\18\3\0\0B\1\2\0026\2\1\0009\2\2\0023\4\3\0)\5d\0B\2\3\0012\0\0ÄK\0\1\0\0\0\0\rdefer_fn\bvim\23get_current_picker:\0\1\4\2\1\0\b-\1\0\0\18\3\0\0B\1\2\1-\1\1\0009\1\0\1\18\3\0\0B\1\2\1K\0\1\0\2¿\1\0\19select_defaulth\1\2\b\2\6\0\0193\2\0\0\18\3\1\0'\5\1\0'\6\2\0003\a\3\0B\3\4\1\18\3\1\0'\5\1\0'\6\4\0\18\a\2\0B\3\4\1\18\3\1\0'\5\5\0'\6\4\0\18\a\2\0B\3\4\1+\3\2\0002\0\0ÄL\3\2\0\2¿\1¿\6n\n<C-r>\0\t<CR>\6i\0å\n\1\0\v\0002\0`6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0026\2\0\0'\4\3\0B\2\2\0029\3\4\0005\5\25\0005\6\5\0005\a\6\0=\a\a\0065\a\b\0=\a\t\0065\a\18\0005\b\v\0009\t\n\1=\t\f\b9\t\r\1=\t\14\b9\t\15\0019\n\16\1 \t\n\t=\t\17\b=\b\19\a5\b\20\0009\t\n\1=\t\f\b9\t\r\1=\t\14\b=\b\21\a=\a\22\0063\a\23\0=\a\24\6=\6\26\0055\6\28\0005\a\27\0=\a\29\6=\6\30\5B\3\2\0019\3\31\0'\5\29\0B\3\2\0019\3\31\0'\5 \0B\3\2\0019\3\31\0'\5!\0B\3\2\0016\3\0\0'\5\"\0B\3\2\0026\4#\0009\4$\0049\4%\4'\6\21\0'\a&\0009\b'\0034\t\0\0B\4\5\0016\4#\0009\4$\0049\4%\4'\6\21\0'\a(\0009\b)\0034\t\0\0B\4\5\0016\4#\0009\4$\0049\4%\4'\6\21\0'\a*\0009\b+\0034\t\0\0B\4\5\0016\4#\0009\4$\0049\4%\4'\6\21\0'\a,\0'\b-\0005\t.\0B\4\5\0016\4#\0009\4$\0049\4%\4'\6\21\0'\a/\0'\b0\0005\t1\0B\4\5\0012\0\0ÄK\0\1\0\1\0\1\fnoremap\2\27:Telescope project<CR>\15<Leader>fp\1\0\1\fnoremap\2 :Telescope file_browser<CR>\15<Leader>fb\14git_files\15<Leader>fg\14live_grep\n<C-f>\15find_files\n<C-p>\bset\vkeymap\bvim\22telescope.builtin\fproject\17file_browser\19load_extension\15extensions\bfzf\1\0\1\bfzf\0\1\0\4\nfuzzy\2\14case_mode\15smart_case\25override_file_sorter\2\28override_generic_sorter\2\rdefaults\1\0\2\rdefaults\0\15extensions\0\20attach_mappings\0\rmappings\6n\1\0\2\n<C-k>\0\n<C-j>\0\6i\1\0\2\6i\0\6n\0\n<C-q>\16open_qflist\19send_to_qflist\n<C-k>\28move_selection_previous\n<C-j>\1\0\3\n<C-q>\0\n<C-k>\0\n<C-j>\0\24move_selection_next\16borderchars\1\t\0\0\b‚îÄ\b‚îÇ\b‚îÄ\b‚îÇ\b‚ï≠\b‚ïÆ\b‚ïØ\b‚ï∞\18layout_config\1\0\4\19preview_cutoff\3\1\20prompt_position\vbottom\vheight\4Õô≥Ê\fÃô≥ˇ\3\nwidth\4Õô≥Ê\fÃô≥ˇ\3\1\0\n\16borderchars\0\rwinblend\3\n\17initial_mode\vinsert\rmappings\0\18layout_config\0\17entry_prefix\a  \20layout_strategy\rvertical\20selection_caret\t‚û§ \18prompt_prefix\nüîç \20attach_mappings\0\nsetup\28telescope.actions.state\22telescope.actions\14telescope\frequire\0", "config", "telescope.nvim")
+try_loadstring("\27LJ\2\n˙\t\0\0\n\0002\0^6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0005\4\25\0005\5\4\0005\6\5\0=\6\6\0055\6\a\0=\6\b\0055\6\20\0005\a\n\0009\b\t\1=\b\v\a9\b\f\1=\b\r\a9\b\14\0019\t\15\1 \b\t\b=\b\16\a9\b\17\1=\b\18\a9\b\17\1=\b\19\a=\a\21\0065\a\22\0009\b\t\1=\b\v\a9\b\f\1=\b\r\a=\a\23\6=\6\24\5=\5\26\0045\5\28\0005\6\27\0=\6\29\5=\5\30\4B\2\2\0019\2\31\0'\4\29\0B\2\2\0019\2\31\0'\4 \0B\2\2\0019\2\31\0'\4!\0B\2\2\0016\2\0\0'\4\"\0B\2\2\0026\3#\0009\3$\0039\3%\3'\5\23\0'\6&\0009\a'\0024\b\0\0B\3\5\0016\3#\0009\3$\0039\3%\3'\5\23\0'\6(\0009\a)\0024\b\0\0B\3\5\0016\3#\0009\3$\0039\3%\3'\5\23\0'\6*\0009\a+\0024\b\0\0B\3\5\0016\3#\0009\3$\0039\3%\3'\5\23\0'\6,\0'\a-\0005\b.\0B\3\5\0016\3#\0009\3$\0039\3%\3'\5\23\0'\6/\0'\a0\0005\b1\0B\3\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\2\27:Telescope project<CR>\15<Leader>fp\1\0\2\fnoremap\2\vsilent\2 :Telescope file_browser<CR>\15<Leader>fb\14git_files\15<Leader>fg\14live_grep\n<C-f>\15find_files\n<C-p>\bset\vkeymap\bvim\22telescope.builtin\fproject\17file_browser\19load_extension\15extensions\bfzf\1\0\1\bfzf\0\1\0\4\28override_generic_sorter\2\nfuzzy\2\14case_mode\15smart_case\25override_file_sorter\2\rdefaults\1\0\2\rdefaults\0\15extensions\0\rmappings\6n\1\0\2\n<C-k>\0\n<C-j>\0\6i\1\0\2\6i\0\6n\0\n<Esc>\n<C-c>\nclose\n<C-q>\16open_qflist\19send_to_qflist\n<C-k>\28move_selection_previous\n<C-j>\1\0\5\n<Esc>\0\n<C-k>\0\n<C-j>\0\n<C-c>\0\n<C-q>\0\24move_selection_next\16borderchars\1\t\0\0\b‚îÄ\b‚îÇ\b‚îÄ\b‚îÇ\b‚ï≠\b‚ïÆ\b‚ïØ\b‚ï∞\18layout_config\1\0\4\19preview_cutoff\3\1\vheight\4Õô≥Ê\fÃô≥ˇ\3\nwidth\4Õô≥Ê\fÃô≥ˇ\3\20prompt_position\vbottom\1\0\t\16borderchars\0\rwinblend\3\n\rmappings\0\17initial_mode\vinsert\17entry_prefix\a  \18layout_config\0\20selection_caret\t‚û§ \20layout_strategy\rvertical\18prompt_prefix\nüîç \nsetup\22telescope.actions\14telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+try_loadstring("\27LJ\2\nÚ\5\0\0\6\0\27\0>6\0\0\0'\2\1\0B\0\2\0026\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\5\0005\5\6\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\a\0005\5\b\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\t\0005\5\n\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\v\0005\5\f\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\r\0005\5\14\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\15\0005\5\16\0B\1\4\0016\1\2\0009\1\3\0019\1\4\1)\3\0\0'\4\17\0005\5\18\0B\1\4\0019\1\19\0005\3\23\0005\4\20\0005\5\21\0=\5\22\4=\4\24\0035\4\25\0=\4\26\3B\1\2\1K\0\1\0\nscope\1\0\4\14highlight\rIblScope\rshow_end\2\15show_start\2\fenabled\2\vindent\1\0\2\vindent\0\nscope\0\14highlight\1\a\0\0\17IndentLevel1\17IndentLevel2\17IndentLevel3\17IndentLevel4\17IndentLevel5\17IndentLevel6\1\0\2\14highlight\0\tchar\b‚îÇ\nsetup\1\0\2\afg\f#89a7d0\14nocombine\2\rIblScope\1\0\2\afg\f#8aaed0\14nocombine\2\17IndentLevel6\1\0\2\afg\f#729bc4\14nocombine\2\17IndentLevel5\1\0\2\afg\f#5a8bb8\14nocombine\2\17IndentLevel4\1\0\2\afg\f#447aad\14nocombine\2\17IndentLevel3\1\0\2\afg\f#316aa1\14nocombine\2\17IndentLevel2\1\0\2\afg\f#205d96\14nocombine\2\17IndentLevel1\16nvim_set_hl\bapi\bvim\bibl\frequire\0", "config", "indent-blankline.nvim")
+time([[Config for indent-blankline.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
